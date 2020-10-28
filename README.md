@@ -12,7 +12,7 @@
 ## useState
 - It is a way to preserve values.
 - It declares a state variable.
-- It is a new way to use the same capabilities that this.state has in a class components.
+- It is a new way to use the same capabilities that this.state has in a class component.
 
 ## 📰 References
 - [ReactJS documentation](https://pt-br.reactjs.org/docs/hooks-state.html)
