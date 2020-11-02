@@ -1,0 +1,38 @@
+.songs-container {
+  margin-top: 20px;
+}
+
+.songs {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.song {
+  margin: 10px;
+  background: #52576154;
+
+  max-width: 300px;
+  width: 80%;
+
+  height: auto;
+
+  padding: 15px 30px;
+
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.76);
+
+  transition: padding 0.2s;
+}
+
+.song:hover {
+  padding: 20px 35px;
+}
+
+@media (max-width: 576px) {
+  .songs {
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 
+import SongsList from "../SongsList";
+
+import "./styles.css";
+
 const Finder = () => {
   const [song, setSong] = useState("");
+  const [songsWereFound, setSongsWereFound] = useState(false);
+  const [songs, setSongs] = useState([]);
 
   const searchSong = async () => {
     let api = `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_track=${song}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MUSIXMATCH_API_KEY}`;
@@ -15,7 +21,6 @@ const Finder = () => {
       });
 
       displaySongs(api_response);
-      
     } catch (error) {
       console.log(error);
     }
@@ -23,7 +28,9 @@ const Finder = () => {
 
   const displaySongs = (response) => {
     response.json().then((data) => {
-      data.message.body.track_list.map((item) => console.log(item.track));
+      //data.message.body.track_list.map((item) => console.log(item.track));
+      setSongsWereFound(true);
+      setSongs(data.message.body.track_list);
     });
   };
 
@@ -40,10 +47,10 @@ const Finder = () => {
     <>
       <h2>Finder</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} />
-        <button type="submit">Pesquisar</button>
+        <input className="search-input" type="text" onChange={handleChange} />
+        <button className="search-btn" type="submit">Pesquisar</button>
       </form>
-      <span>{song}</span>
+      {songsWereFound ? <SongsList items={songs} /> : `procurando por ${song}`}
     </>
   );
 };

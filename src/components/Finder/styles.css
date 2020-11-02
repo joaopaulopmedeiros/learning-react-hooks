@@ -1,0 +1,14 @@
+.search-input, .search-btn  {
+    padding: 8px 20px;
+    border: none;
+}
+
+.search-input {
+    border-radius: 2px 0px 0px 2px;
+}
+
+.search-btn {
+    border-radius: 0px 2px 2px 0px;
+    background-color: #5b5d63;
+    color: rgba(255, 255, 255, 0.534);
+}
